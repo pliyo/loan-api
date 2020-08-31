@@ -1,6 +1,7 @@
 using loan_api.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,8 +21,9 @@ namespace loan_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IEventSender>();
+            services.AddSingleton<IEventSender, EventSender>();
             services.AddSingleton<LoansProvider>();
+            services.AddHealthChecks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +43,11 @@ namespace loan_api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapGet("/status/ready", async context =>
+                {
+                    await context.Response.WriteAsync("Ready");
+                });
+                endpoints.MapHealthChecks("/status/health");
             });
         }
     }
