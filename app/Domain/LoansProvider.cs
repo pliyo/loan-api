@@ -47,6 +47,11 @@ namespace loan_api.Domain
             _eventSender = eventSender;
         }
 
+        public void CreateLoan(Loan loan)
+        {
+            _loans.Add(loan.CustomerId, loan);
+        }
+
         /// Updates Loan
         /// Assume deduplication of messages is handled somewhere else
         /// ASK PM: What do we do with Payments received for loans that don't exists or are inactive / fully paid?

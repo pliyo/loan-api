@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using loan_api.Domain;
+using loan_api.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
@@ -9,17 +11,20 @@ namespace loan_api.Controllers
     public class LoansController : ControllerBase
     {
         private readonly ILogger<LoansController> _logger;
+        private readonly LoansProvider _loansProvider;
 
-        public LoansController(ILogger<LoansController> logger)
+        public LoansController(ILogger<LoansController> logger, LoansProvider loansProvider)
         {
             _logger = logger;
+            _loansProvider = loansProvider;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAsync()
+        [HttpGet("{customerId}")]
+        public async Task<IActionResult> GetAsync(string customerId)
         {
-            _logger.LogInformation("Get...");
-            return Ok();
+            var loan = _loansProvider.GetLoan(customerId);
+
+            return Ok(loan);
         }
     }
 }
