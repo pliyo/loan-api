@@ -9,11 +9,13 @@ If a loan is not finished it will send loan updated + updated daily usage.
 
 # Testing
 
-I focused on unit tests because that's what it's certain about this problem, as the system relies heavily on integration with other services it will need plenty of focus
-around integration testing.
+I focused on unit tests because that's what it's certain about this problem.
+
+As the system relies heavily on integration with other services, once the technology stack has been agreed it will need plenty of focus around integration testing.
 
 # Assumptions
 
+- Receiving and sending events is out of the scope of this exercise.
 - Deduplication of messages is handled somewhere else.
 - Data is in memory to make it easier.
 - Assume we keep track of how much you have payed already.
