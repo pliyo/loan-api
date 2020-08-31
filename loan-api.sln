@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "loan-api", "app\loan-api.csproj", "{CAEA3EE2-0015-4529-BA69-9F1AF0F80DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loan-api-tests", "loan-api-tests\loan-api-tests.csproj", "{1FDD28AC-51B2-4345-9BFC-65927A227289}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loan-api-tests", "tests\unit-tests\unit-tests.csproj", "{1FDD28AC-51B2-4345-9BFC-65927A227289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>loan_api_tests</RootNamespace>
+    <RootNamespace>unit_tests</RootNamespace>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\app\loan-api.csproj" />
+    <ProjectReference Include="..\..\app\loan-api.csproj" />
   </ItemGroup>
 
 </Project>

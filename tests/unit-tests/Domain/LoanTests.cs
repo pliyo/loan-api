@@ -7,7 +7,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace loan_api_tests
+namespace unit_tests
 {
     public class LoanTests
     {
@@ -70,7 +70,7 @@ namespace loan_api_tests
             };
 
             var expectedLoan = await _loansProvider.UpdateLoanAsync(paymentReceived);
-            
+
             expectedLoan.State().Should().Be(LoanState.FINISHED);
             expectedLoan.TotalLoanPayed.Should().Be(expectedLoan.TotalLoanAmount);
             expectedLoan.CustomerId.Should().Be(paymentReceived.CustomerId);
